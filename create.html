@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timer</title>
+<style>
+.timer {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  font-size: 18px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Keyframe animations for the timer */
+@keyframes countdown {
+  0% {
+    color:  black;
+  }
+  50% {
+    color: rgb(251, 3, 3);
+  }
+  100% {
+    color: black;
+  }
+}
+
+/* Apply animation to the timer */
+.timer.running {
+  animation: countdown 1s infinite;
+}
+</style>
+</head>
+<body>
+<div class="timer" id="timer">20:00</div>
+<div class="buttons">
+  <button onclick="startTimer()">Start</button>
+  <button onclick="pauseTimer()">Pause</button>
+  <button onclick="resetTimer()">Reset</button>
+</div>
+
+<script>
+var timerInterval;
+var timer = 20 * 60; // 20 minutes in seconds
+var display = document.getElementById('timer');
+
+function startTimer() {
+    timerInterval = setInterval(function () {
+        var minutes = Math.floor(timer / 60);
+        var seconds = timer % 60;
+
+        var displayText = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        display.textContent = displayText;
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);
+            display.textContent = "00:00";
+        }
+    }, 1000);
+    display.classList.add("running");
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    display.classList.remove("running");
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timer = 20 * 60;
+    display.textContent = "20:00";
+    display.classList.remove("running");
+}
+</script>
+</body>
+</html>

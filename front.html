@@ -1,0 +1,147 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js"></script>
+        
+       
+    </head>
+    <body>
+        
+<h1 >CONCENTRA</h1>
+        <div>
+    <input type="button" class="anybutton" id="myab"  onclick="document.location='create.html'" value="CREATE"/>
+    
+    <input type="button" class="anybutton2" id="myab" value="ACHIEVEMENTS"/>
+
+       <div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        
+    </div>
+    <marquee behavior="scroll" direction="left" scrollamount="15">
+        <span class="marquee-text">  ................Work expands to fill the time available.......................................................................................................................................................... </span>                        
+      </marquee>
+     <marquee behavior="scroll" direction="left" scrollamount="15">
+        <span class="marquee-text">..............................................................................................................................................................................................Among all the killers time is ultimate,because it kills everything  </span>
+    </marquee>
+       
+    </body>
+</html>
+<style>
+    .marquee-text {
+    font-size: 40px; /* Adjust the font size here */
+  }
+
+   h1{
+    font-size:40;
+    position:absolute;
+    width:20px;
+    top:20px;
+    color:black;
+   }
+     body{
+                background-color:rgb(189, 161, 202);
+            }
+            .anybutton {
+              display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 20px; /* Adjust the border-radius to control the curvature */
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+       top:70%;
+       left:27%;
+       width:200px;
+       height:70px;
+       position: absolute;
+       z-index: 5;
+       /*background: rgb(135, 171, 222);*/
+       }
+       .anybutton2 {
+         display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 20px; /* Adjust the border-radius to control the curvature */
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+       top:70%;
+       left:62%;
+       width:200px;
+       height:70px;
+       position: absolute;
+       z-index: 100;
+      /* background: rgb(135, 171, 222);*/
+       }
+    #clockContainer {
+    position: relative;
+    background-position: center;
+
+    margin: auto;
+    height: 40vw;
+    /*to make the height and width responsive*/
+    width: 40vw;
+    /*background:url(C:\Users\CVR\Downloads)no-repeat;*/
+  /*background: url(https://media.geeksforgeeks.org/wp-content/uploads/20210302161254/imgonlinecomuaCompressToSizeOmNATjUMFKw-300x300.jpg) no-repeat;*/
+    /*setting our background image*/
+    
+    background-size: 100%;
+   
+    }
+   
+    #hour,
+    #minute,
+    #second {
+    position: absolute;
+    background: black;
+    border-radius: 10px;
+    transform-origin: bottom;
+    }
+   
+    #hour {
+    width: 1.8%;
+    height: 25%;
+    top: 24%;
+    left: 48.85%;
+    opacity: 0.5;
+    }
+   
+    #minute {
+    width: 1.4%;
+    height: 30%;
+    top: 19%;
+    left: 48.9%;
+    opacity: 0.5;
+    }
+   
+    #second {
+    width: 1%;
+    height: 40%;
+    top: 9%;
+    left: 49.25%;
+    opacity: 0.5;
+    }
+</style>
+<script>
+    setInterval(() => {
+    d = new Date(); //object of date()
+    hr = d.getHours();
+    min = d.getMinutes();
+    sec = d.getSeconds();
+    hr_rotation = 30 * hr + min / 2; //converting current time
+    min_rotation = 6 * min;
+    sec_rotation = 6 * sec;
+   
+    hour.style.transform = `rotate(${hr_rotation}deg)`;
+    minute.style.transform = `rotate(${min_rotation}deg)`;
+    second.style.transform = `rotate(${sec_rotation}deg)`;
+    }, 1000);
+</script>
